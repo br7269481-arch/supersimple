@@ -1,0 +1,138 @@
+[  
+  {  
+    "id": 1,  
+    "category": "Ducks",  
+    "name": "Pekin Ducks",  
+    "description": "Healthy 8-week-old Pekin ducks, excellent for meat and eggs. Vaccinated and farm-raised.",  
+    "price": 15,  
+    "images": ["https://source.unsplash.com/600x400/?pekin-duck"]  
+  },  
+  {  
+    "id": 2,  
+    "category": "Peacocks",  
+    "name": "India Blue Peacocks",  
+    "description": "Stunning adult peacocks for ornamental display. Vibrant feathers, 2 years old.",  
+    "price": 250,  
+    "images": ["https://source.unsplash.com/600x400/?peacock"]  
+  },  
+  {  
+    "id": 3,  
+    "category": "Goats",  
+    "name": "Boer Goats",  
+    "description": "Premium Boer goats for meat production. 6 months old, dewormed and healthy.",  
+    "price": 180,  
+    "images": ["https://source.unsplash.com/600x400/?boer-goat"]  
+  },  
+  {  
+    "id": 4,  
+    "category": "Chickens",  
+    "name": "Rhode Island Red Chickens",  
+    "description": "Prolific egg layers, 20 weeks old. Great for backyard farming.",  
+    "price": 12,  
+    "images": ["https://source.unsplash.com/600x400/?rhode-island-red-chicken"]  
+  },  
+  {  
+    "id": 5,  
+    "category": "Emus",  
+    "name": "Emus",  
+    "description": "Juvenile emus for oil/meat. Fast-growing, 3 months old.",  
+    "price": 320,  
+    "images": ["https://source.unsplash.com/600x400/?emu"]  
+  },  
+  {  
+    "id": 6,  
+    "category": "Ostriches",  
+    "name": "Black Ostriches",  
+    "description": "Chicks available for feathers/meat/eggs. High demand breed.",  
+    "price": 450,  
+    "images": ["https://source.unsplash.com/600x400/?ostrich"]  
+  },  
+  {  
+    "id": 7,  
+    "category": "Guinea Fowl",  
+    "name": "Helmeted Guinea Fowl",  
+    "description": "Pest control experts, 10 weeks old. Hardy and low-maintenance.",  
+    "price": 18,  
+    "images": ["https://source.unsplash.com/600x400/?guinea-fowl"]  
+  },  
+  {  
+    "id": 8,  
+    "category": "Guinea Pigs",  
+    "name": "American Guinea Pigs",  
+    "description": "Cute pets or breeders. 5 weeks old, various colors.",  
+    "price": 25,  
+    "images": ["https://source.unsplash.com/600x400/?guinea-pig"]  
+  },  
+  {  
+    "id": 9,  
+    "category": "Rabbits",  
+    "name": "New Zealand Rabbits",  
+    "description": "Meat/breeding rabbits, 8 weeks. Rapid growers.",  
+    "price": 20,  
+    "images": ["https://source.unsplash.com/600x400/?rabbit-farm"]  
+  },  
+  {  
+    "id": 10,  
+    "category": "Geese",  
+    "name": "Toulouse Geese",  
+    "description": "Foie gras quality, 12 weeks old. Excellent foragers.",  
+    "price": 35,  
+    "images": ["https://source.unsplash.com/600x400/?goose"]  
+  },  
+  {  
+    "id": 11,  
+    "category": "Parrots",  
+    "name": "African Grey Parrots",  
+    "description": "Intelligent talkers, young birds. DNA tested.",  
+    "price": 1500,  
+    "images": ["https://source.unsplash.com/600x400/?african-grey-parrot"]  
+  },  
+  {  
+    "id": 12,  
+    "category": "Turkeys",  
+    "name": "Broad Breasted White Turkeys",  
+    "description": "Thanksgiving specials, 16 weeks. Fast finishers.",  
+    "price": 40,  
+    "images": ["https://source.unsplash.com/600x400/?turkey-farm"]  
+  },  
+  {  
+    "id": 13,  
+    "category": "Pigeons",  
+    "name": "Homing Pigeons",  
+    "description": "Racing/breeding pairs. Trained young birds.",  
+    "price": 30,  
+    "images": ["https://source.unsplash.com/600x400/?pigeon"]  
+  },  
+  {  
+    "id": 14,  
+    "category": "Quails",  
+    "name": "Coturnix Quails",  
+    "description": "Egg/meat production, 6 weeks. High yield.",  
+    "price": 8,  
+    "images": ["https://source.unsplash.com/600x400/?quail"]  
+  },  
+  {  
+    "id": 15,  
+    "category": "Donkeys",  
+    "name": "Mammoth Jack Donkeys",  
+    "description": "Working jacks, 1 year old. Strong and gentle.",  
+    "price": 1200,  
+    "images": ["https://source.unsplash.com/600x400/?donkey"]  
+  },  
+  {  
+    "id": 16,  
+    "category": "Swans",  
+    "name": "Mute Swans",  
+    "description": "Elegant pond birds, juveniles. Permit required.",  
+    "price": 800,  
+    "images": ["https://source.unsplash.com/600x400/?swan"]  
+  },  
+  {  
+    "id": 17,  
+    "category": "Chicken Coops",  
+    "name": "Premium Chicken Coops",  
+    "description": "Durable wooden coops for 10-20 birds. Weatherproof.",  
+    "price": 350,  
+    "images": ["https://source.unsplash.com/600x400/?chicken-coop"]  
+  }  
+]

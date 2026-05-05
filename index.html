@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>GREEN PASTURES LIVESTOCK FARM - Premium Livestock</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <i class="fas fa-leaf"></i> GREEN PASTURES
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" class="cart-btn" onclick="openCart()">
+          <i class="fas fa-shopping-cart"></i> Cart 
+          <span id="cart-badge" class="cart-badge" style="display: none;"></span>
+        </a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="hero-content container">
+        <h1>Healthy Livestock, Trusted Farming</h1>
+        <p>Discover premium poultry, birds, mammals, and farm equipment from GREEN PASTURES LIVESTOCK FARM. Quality guaranteed for your agricultural needs.</p>
+        <div>
+          <a href="products.html" class="btn">Shop Now</a>
+          <a href="contact.html" class="btn btn-secondary">Contact Us</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="section">
+      <div class="container">
+        <h2 class="section-title">Featured Livestock</h2>
+        <div class="featured-grid products-grid"></div> <!-- Loaded by products.js -->
+        <div style="text-align: center; margin-top: 3rem;">
+          <a href="products.html" class="btn">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="section" style="background: var(--light-green);">
+      <div class="container">
+        <h2 class="section-title">Ready to Start?</h2>
+        <p style="text-align: center; font-size: 1.2rem; max-width: 600px; margin: 0 auto 3rem;">
+          Browse our selection, add to cart, and send your order directly to our farm.
+        </p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+          <a href="products.html" class="btn">Shop Livestock</a>
+          <a href="#contact" class="btn btn-secondary" onclick="openContact()">Get Quote</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Cart Modal -->
+  <div id="cart-modal" class="cart-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="window.GreenPastures.closeModal('cart-modal')">&times;</span>
+      <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+      <div id="cart-items"></div>
+      <div class="cart-total" style="margin-top: 2rem;">
+        <strong>Total: $<span>0.00</span></strong>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <button id="open-order" class="btn" onclick="window.GreenPastures.closeModal('cart-modal'); window.GreenPastures.openModal('order-modal')">Send Order</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Order Modal -->
+  <div id="order-modal" class="order-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="window.GreenPastures.closeModal('order-modal')">&times;</span>
+      <h2><i class="fas fa-paper-plane"></i> Send Order to Seller</h2>
+      <p>Your cart summary will be emailed to livestockgreenfarmin@gmail.com</p>
+      <form id="order-form">
+        <input type="text" name="name" placeholder="Your Name *" required>
+        <input type="tel" name="phone" placeholder="Phone Number *" required>
+        <input type="text" name="location" placeholder="Delivery Location *" required>
+        <button type="button" id="send-order-btn" class="btn" onclick="sendOrder()">Send Order</button>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="container">
+        <p>&copy; 2024 GREEN PASTURES LIVESTOCK FARM. All rights reserved.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-facebook"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="mailto:livestockgreenfarmin@gmail.com"><i class="fas fa-envelope"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/products.js" defer></script>
+</body>
+</html>
+

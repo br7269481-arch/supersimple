@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Livestock Detail - GREEN PASTURES</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <header>
+    <nav>
+      <a href="index.html" class="logo">
+        <i class="fas fa-leaf"></i> GREEN PASTURES
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="products.html">Products</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li><a href="#" class="cart-btn" onclick="openCart()">
+          <i class="fas fa-shopping-cart"></i> Cart 
+          <span id="cart-badge" class="cart-badge" style="display: none;"></span>
+        </a></li>
+      </ul>
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <a href="products.html" class="btn" style="margin: 2rem 0;">&larr; Back to Products</a>
+      <div class="product-detail">
+        <div class="detail-images">
+          <img id="main-image" class="main-image" src="" alt="">
+          <div class="thumbnails" id="thumbnails"></div>
+        </div>
+        <div class="detail-info">
+          <h1 id="product-name"></h1>
+          <div id="product-price" class="detail-price"></div>
+          <div class="qty-controls">
+            <button class="qty-btn" onclick="updateQty(-1)">-</button>
+            <span id="qty-display" class="qty-display">1</span>
+            <button class="qty-btn" onclick="updateQty(1)">+</button>
+          </div>
+          <button class="btn" style="margin: 2rem 0; padding: 1.2rem 3rem;" onclick="addCurrentToCart()">
+            <i class="fas fa-cart-plus"></i> Add to Cart
+          </button>
+          <h3>Description</h3>
+          <p id="product-desc"></p>
+          <button class="btn btn-secondary" onclick="window.GreenPastures.openModal('contact-modal')">
+            <i class="fas fa-envelope"></i> Contact Seller
+          </button>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modals -->
+  <div id="cart-modal" class="cart-modal">
+    <!-- Same as previous -->
+    <div class="modal-content">
+      <span class="close-modal" onclick="window.GreenPastures.closeModal('cart-modal')">&times;</span>
+      <h2><i class="fas fa-shopping-cart"></i> Your Cart</h2>
+      <div id="cart-items"></div>
+      <div class="cart-total" style="margin-top: 2rem;">
+        <strong>Total: $<span>0.00</span></strong>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <button onclick="placeOrder()">Place Order</button>
+
+      
+      </div>
+    </div>
+  </div>
+
+  <div id="order-modal" class="order-modal">
+    <!-- Same -->
+    <div class="modal-content">
+      <span class="close-modal" onclick="window.GreenPastures.closeModal('order-modal')">&times;</span>
+      <h2><i class="fas fa-paper-plane"></i> Send Order</h2>
+      <form id="order-form">
+        <input type="text" name="name" placeholder="Name *" required>
+        <input type="tel" name="phone" placeholder="Phone *" required>
+        <input type="text" name="location" placeholder="Location *" required>
+        <button type="button" class="btn" onclick="sendOrder()">Send</button>
+      </form>
+    </div>
+  </div>
+
+  <div id="contact-modal" class="contact-modal">
+    <div class="modal-content">
+      <span class="close-modal" onclick="window.GreenPastures.closeModal('contact-modal')">&times;</span>
+      <h2>Contact Farm</h2>
+      <p>Email: livestockgreenfarmin@gmail.com</p>
+      <p>Phone: +1 (555) FARM-123</p>
+    </div>
+  </div>
+
+  <footer><!-- Same footer --></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script src="js/main.js" defer></script>
+  <script src="js/cart.js" defer></script>
+  <script src="js/products.js" defer></script>
+  <script>
+    let currentProduct = {};
+    let currentQty = 1;
+
+    // Load product from URL id
+    async function loadProductDetail() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = parseInt(urlParams.get('id'));
+      const products = await (await fetch('data/products.json')).json();
+      currentProduct = products.find(p => p.id === id);
+      if (!currentProduct) return;
+
+      document.getElementById('product-name').textContent = currentProduct.name;
+      document.getElementById('product-price').textContent = `$${currentProduct.price}`;
+      document.getElementById('product-desc').textContent = currentProduct.description;
+      document.getElementById('main-image').src = currentProduct.images[0];
+
+      // Thumbnails
+      const thumbs = document.getElementById('thumbnails');
+      thumbs.innerHTML = currentProduct.images.map((img, i) => 
+        `<img src="${img}" class="thumbnail ${i===0?'active':''}" onclick="changeImage(${i})" alt="">`
+      ).join('');
+
+      document.querySelectorAll('.thumbnail').forEach((thumb, i) => 
+        thumb.addEventListener('click', () => changeImage(i))
+      );
+    }
+
+    function changeImage(index) {
+      document.getElementById('main-image').src = currentProduct.images[index];
+      document.querySelectorAll('.thumbnail').forEach(t => t.classList.remove('active'));
+      document.querySelectorAll('.thumbnail')[index].classList.add('active');
+    }
+
+    function updateQty(change) {
+      currentQty = Math.max(1, currentQty + change);
+      document.getElementById('qty-display').textContent = currentQty;
+    }
+
+    function addCurrentToCart() {
+      addToCart(currentProduct.id, currentProduct.name, currentProduct.price, currentProduct.images[0], currentQty);
+    }
+
+    window.updateQty = updateQty;
+    window.addCurrentToCart = addCurrentToCart;
+    window.changeImage = changeImage;
+
+    document.addEventListener('DOMContentLoaded', loadProductDetail);
+
+</script>
+</body>
+</html>
